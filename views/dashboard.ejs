@@ -1,0 +1,21 @@
+<%- include('partials/header') %>
+
+<main class="container">
+    <% if (typeof error !== 'undefined') { %>
+        <div class="error-message">
+            <%= error %>
+        </div>
+    <% } %>
+
+    <div class="checklist-container">
+        <% results.forEach(result => { %>
+            <div class="checklist-item <%= result.passed ? 'passed' : 'failed' %>">
+                <h3><%= result.name %></h3>
+                <p class="status">Status: <%= result.passed ? 'Passed' : 'Failed' %></p>
+                <p class="message"><%= result.message %></p>
+            </div>
+        <% }); %>
+    </div>
+</main>
+
+<%- include('partials/footer') %>
